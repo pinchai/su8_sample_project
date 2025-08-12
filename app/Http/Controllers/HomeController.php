@@ -13,6 +13,11 @@ class HomeController extends Controller
         $data = DB::table('product')
             ->select('*')
             ->get();
-        return view('home', ['product'=>$data]);
+        return view('home',
+            [
+                'product'=>$data,
+            ]);
     }
+
+
 }

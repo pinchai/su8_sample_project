@@ -26,7 +26,12 @@
                                 <span class="price">US ${{ $item->price }}</span>
                                 <span class="old-price">US ${{ $item->price + random_int(1,5) }}</span>
                             </div>
-                            <button class="btn btn-dark add-cart-btn">Add to Cart</button>
+                            <button
+                                class="btn btn-dark add-cart-btn"
+                                @click="addToCart({{ $item->id }})"
+                            >
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
