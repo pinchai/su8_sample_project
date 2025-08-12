@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         // products table
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->decimal('price', 10, 2);
@@ -29,7 +29,7 @@ return new class extends Migration
         });
 
         // orders table
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->dateTime('datetime');
@@ -40,7 +40,7 @@ return new class extends Migration
         });
 
         // order_items table
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('order_item', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
@@ -53,9 +53,9 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('order_items');
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_item');
+        Schema::dropIfExists('order');
         Schema::dropIfExists('user_cart');
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product');
     }
 };
